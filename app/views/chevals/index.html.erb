@@ -1,2 +1,19 @@
-<h1>Chevals#index</h1>
-<p>Find me in app/views/chevals/index.html.erb</p>
+<h1 class="text-center">Tous les Chevals</h1>
+
+<div class="container">
+    <ul>
+    <% @chevals.each do |cheval| %>
+      <h2><%= cheval.name %></h2>
+      <li> <%= cheval.description %>
+      </br>
+       <b>De couleur <%= cheval.robe.name %>, il habite à <%= cheval.address %></li></b>
+       <p>La taille :</p>
+       <p><%= cheval.taille.to_s.chars.first %>,<%= cheval.taille.to_s.chars[-2..-1].join %>mètres au garot </p>
+       <p><%= link_to 'voir', cheval_path(cheval) %> - <%= link_to 'edit', edit_cheval_path(cheval) %> <p>
+       <p><%= link_to 'DELETE THIS CHEVAL', cheval_path(cheval) %>  <p>
+
+        <p>--------------------------------------------------------------------------</p>
+    <% end %>
+    </ul>
+</div>
+
