@@ -1,0 +1,11 @@
+<%= simple_form_for(@cheval) do |f| %>
+    <%= f.input :name, placeholder: "Nom du cheval" %>
+    <%= f.input :description, placeholder: "C'est un cheval fougeux" %>
+    <%= f.input :address, placeholder: "8, rue du Box, Lille" %>
+    <%= f.input :taille, placeholder: "120" %>
+    <%= f.input :price, placeholder: "70" %>
+    <%= f.input :pattes, placeholder: "4" %>
+    <%= f.input :robe_id, collection: Robe.all, placeholder: @cheval.robe %>
+    <%= f.input :category_id, collection: Category.all %>
+    <%= f.button :submit, class: "btn btn-primary"  %>
+<% end %>

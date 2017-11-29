@@ -37,3 +37,4 @@ def review_params
   params.require(:review).permit(:content, :rating, :cheval_id, :profile_id)
 end
 end
+

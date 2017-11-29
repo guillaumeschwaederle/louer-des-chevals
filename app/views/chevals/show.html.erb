@@ -1,2 +1,21 @@
-<h1>Chevals#show</h1>
-<p>Find me in app/views/chevals/show.html.erb</p>
+
+<div class="container">
+<h1 class="text-center"><%= @cheval.name %></h1>
+      <h3><%= @cheval.category.name.capitalize %></h3>
+        </br>
+       <p> Description: <%= @cheval.description %>
+      </br>
+        Robe: <%= @cheval.robe.name %>
+       </br>
+       Addresse: <%= @cheval.address %>
+       </br>
+       La taille : <%= @cheval.taille.to_s.chars.first %>,<%= @cheval.taille.to_s.chars[-2..-1].join %> mètres au garot
+        </br>
+        Pattes: <%= @cheval.pattes %> patte<% if @cheval.pattes > 1%><%="s"%><% end %></p>
+        </br>
+       <%= link_to 'edit', edit_cheval_path(@cheval), class: "btn btn-primary" %>
+        </br>
+        <%= link_to 'Ce cheval est mort', cheval_path(@cheval), class: "btn btn-danger",  method: :delete, data: { confirm: "Le vétérinaire confirme ?" } %>
+        </br>
+        <%= link_to 'Retour a tous les chevals', chevals_path, class: "btn btn-primary" %>
+</div>
