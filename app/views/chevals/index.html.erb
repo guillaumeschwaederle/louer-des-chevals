@@ -10,8 +10,6 @@
        <p>La taille :</p>
        <p><%= cheval.taille.to_s.chars.first %>,<%= cheval.taille.to_s.chars[-2..-1].join %>mètres au garot </p>
        <p><%= link_to 'voir', cheval_path(cheval) %> - <%= link_to 'edit', edit_cheval_path(cheval) %> <p>
-       <p><%= link_to 'DELETE THIS CHEVAL', cheval_path(cheval) %>  <p>
-
         <p>--------------------------------------------------------------------------</p>
     <% end %>
     </ul>
