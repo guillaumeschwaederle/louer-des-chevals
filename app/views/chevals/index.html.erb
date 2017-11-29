@@ -6,7 +6,7 @@
       <h2><%= cheval.name %></h2>
       <li> <%= cheval.description %>
       </br>
-       <b>De couleur <%= cheval.robe.name %>, il habite à <%= cheval.address %></li></b>
+       <b>De couleur <%= cheval.robe.name %>, il habite à <%= cheval.ville %></li></b>
        <p>La taille :</p>
        <p><%= cheval.taille.to_s.chars.first %>,<%= cheval.taille.to_s.chars[-2..-1].join %>mètres au garot </p>
        <p><%= link_to 'voir', cheval_path(cheval) %> - <%= link_to 'edit', edit_cheval_path(cheval) %> <p>
