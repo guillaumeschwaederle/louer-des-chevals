@@ -1,2 +1,24 @@
-<h1>Bookings#show</h1>
-<p>Find me in app/views/bookings/show.html.erb</p>
+<%= link_to "Back", cheval_path(@booking.cheval), class: "btn btn-warning" %>
+<%= link_to "Edit", edit_cheval_booking_path(@booking), class: "btn btn-success" %>
+<%= link_to "Delete", cheval_booking_path(@booking), method: :delete, class: "btn btn-danger" %>
+<h1>Votre réservation : </h1>
+<h2> Du <%= @booking.start_date %> au <%= @booking.end_date %></h2>
+<h3>Statut: <%= @booking.statut %></h3>
+
+<h2>Cheval : <%= @booking.cheval.name %></h2>
+<p>Robe: <%= @booking.cheval.robe.name %></p>
+<p>Catégorie: <%= @booking.cheval.category.name %></p>
+<p>Address: <%= @booking.cheval.address %></p>
+<p>Price: <%= @booking.cheval.price %>€</p>
+<p>Taille: <%= @booking.cheval.taille %>cm</p>
+<p>Nombre de pattes: <%= @booking.cheval.pattes %></p>
+<p>Description: <%= @booking.cheval.description %></p>
+<p><strong>Propriétaire: <%= @booking.cheval.profile.first_name %> <%= @booking.cheval.profile.last_name %></strong></p>
+<p>Email : <%= @booking.cheval.profile.user.email %></p>
+<p>Téléphone : <%= @booking.cheval.profile.phone_number %></p>
+
+
+
+<h2>Votre Message :</h2>
+<%= @booking.message %>
+
