@@ -24,11 +24,6 @@ class ProfilesController < ApplicationController
     @profile = Profile.find(current_user.profile.id)
   end
 
-  def delete
-    @profile.destroy
-    redirect_to @user
-  end
-
   private
 
   def set_user
