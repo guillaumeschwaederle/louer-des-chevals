@@ -1,9 +1,7 @@
 <%= simple_form_for @profile do |f| %>
 <%= f.input :first_name, placeholder: "Jean" %>
 <%= f.input :last_name, placeholder: "Rochefort" %>
-<%= f.input :phone_number, placeholder "0673687376" %>
+<%= f.input :phone_number, placeholder: "0673687376" %>
 <%= f.input :user_id, as: :hidden, value: current_user.id %>
 <%= f.submit "Valider mon profil", class: "btn btn-primary" %>
 <% end %>
-
-  <%= f.input :address, placeholder: "8, rue du Box, Lille" %>
