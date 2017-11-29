@@ -17,23 +17,18 @@ class ProfilesController < ApplicationController
   def show
     @profile = current_user.profile
   end
+
   def edit
+    @profile = current_user.profile
   end
 
   def update
-    @profile = Profile.find(current_user.profile.id)
-  end
-
-  def delete
-    @profile.destroy
-    redirect_to @user
+    @profile = current_user.profile
+    @profile.update(profile_params)
+    redirect_to profile_path(@profile)
   end
 
   private
-
-  def set_user
-    @user = User.find(params[:user_id])
-  end
 
   def profile_params
   params.require(:profile).permit(:first_name, :last_name, :phone_number, :user_id)
