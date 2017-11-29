@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
+  
+  resources :profiles, only: [:new, :create, :edit, :update, :destroy, :show] do
+    resources :monecurie, controller: 'profileschevals', only: [:index]
+    resources :mesreservations, controller: 'profilesbookings', only: [:index]
+  end
 
-  resources :profiles, only: [:new, :create, :edit, :update, :show]
 
   resources :chevals do
     resources :reviews, only: [:new, :create, :edit, :update, :destroy]

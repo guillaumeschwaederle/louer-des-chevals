@@ -14,7 +14,6 @@ class ChevalsController < ApplicationController
 
   def create
     @cheval = Cheval.new(cheval_params)
-
   end
 
   def edit
