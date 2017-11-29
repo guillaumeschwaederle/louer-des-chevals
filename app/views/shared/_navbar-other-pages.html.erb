@@ -1,10 +1,10 @@
-<div class="navbar-wagon">
+<div class="navbar-wagon navbar-wagon-opaque">
   <!-- Logo -->
 
 
   <%= link_to chevals_path, class: "navbar-wagon-brand" do %>
     <div class="navbar-wagon-brand">
-      <%= cl_image_tag("logo-cheval-noir_z4quit.png")%>
+      <%= cl_image_tag("logo-cheval_crnhwc.png")%>
   </div>
     <% end %>
 
@@ -12,20 +12,24 @@
 
   <!-- Right Navigation -->
   <div class="navbar-wagon-right hidden-xs hidden-sm">
-    <%= link_to "Mes Réservations", cheval_booking_path, class: "navbar-wagon-item navbar-wagon-link" %>
+
+    <%= link_to "Mes Réservations", new_user_registration_path, class: "navbar-wagon-item navbar-wagon-link" %>
      <p>|</p>
     <%= link_to "Mon Ecurie", new_user_session_path, class: "navbar-wagon-item navbar-wagon-link" %>
-    <!-- Profile picture with dropdown list -->
+
+
     <div class="navbar-wagon-item">
       <div class="dropdown">
-        <img src="https://kitt.lewagon.com/placeholder/users/ssaunier" class="avatar dropdown-toggle" id="navbar-wagon-menu" data-toggle="dropdown">
+         <img src="http://lorempixel.com/100/100/people" class="avatar dropdown-toggle" id="navbar-pages-menu" data-toggle="dropdown">
         <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
-          <li><a href="#">Voir mon profil</a></li>
-          <li><a href="#">Editer mon profil</a></li>
-          <li><a href="#">Se déconnecter</a></li>
+          <li><%= link_to "Voir mon profil"%></li>
+          <li><%= link_to "Editer mon profil"%></li>
+          <li><%= link_to "Se déconnecter" %></li>
         </ul>
       </div>
     </div>
+
+
   </div>
 
   <!-- Dropdown appearing on mobile only -->
@@ -33,9 +37,9 @@
     <div class="dropdown">
       <i class="fa fa-bars dropdown-toggle" data-toggle="dropdown"></i>
       <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
-        <li><a href="#">Host</a></li>
-        <li><a href="#">Trips</a></li>
-        <li><a href="#">Messagese</a></li>
+        <li><%= link_to "Voir mon profil"%></li>
+        <li><%= link_to "Editer mon profil"%></li>
+        <li><%= link_to "Se déconnecter"%></li>
       </ul>
     </div>
   </div>
