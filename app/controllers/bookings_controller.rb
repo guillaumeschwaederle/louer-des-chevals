@@ -14,8 +14,10 @@ class BookingsController < ApplicationController
     @booking.cheval = @cheval
     @booking.save
     if @booking.save
+      fail
       redirect_to cheval_path(params[:cheval_id])
     else
+      fail
       render :new
     end
   end
