@@ -1,10 +1,10 @@
 Rails.application.routes.draw do
 
-  resources :profiles, only: [:new, :create, :edit, :update, :delete]
+  resources :profiles, only: [:new, :create, :edit, :update, :destroy]
 
   resources :chevals do
-    resources :reviews, only: [:new, :create, :edit, :update, :delete]
-    resources :bookings, only: [:show, :new, :create, :edit, :update, :delete]
+    resources :reviews, only: [:new, :create, :edit, :update, :destroy]
+    resources :bookings, only: [:show, :new, :create, :edit, :update, :destroy]
   end
 
   devise_for :users

@@ -7,4 +7,9 @@ class Booking < ApplicationRecord
   validates :statut, presence: true
   validates :message, presence: true, length: { maximum:300 }
 
+  validates_presence_of :end_date, if: :temporalite?
+
+  def temporalite?
+    end_date > start_date
+  end
 end

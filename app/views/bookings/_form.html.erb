@@ -1,0 +1,32 @@
+<%= simple_form_for [@cheval, @booking] do |f| %>
+  <h2>Début de la location : </h2>
+  <%= f.date_field :start_date, as: :date, html5: true, min: Date.today, discard_day: true, class: 'form-control form-control-lg' %>
+  <h2>Fin de la location : </h2>
+  <%= f.date_field :end_date, as: :date, min: Date.today, html5: true, class: 'form-control form-control-lg' %>
+  <h2 id="price_show"></h2>
+  <%= f.input :message, label: 'Message pour le propriétaire (max 150 caractères)', placeholder: 'Je souhaiterais louer votre cheval, pour faire des choses tout à fait normales avec.' %>
+  <%= f.submit "Submit your booking", class: "btn btn-primary" %>
+<% end %>
+
+
+<% content_for(:js) do %>
+  <%= javascript_tag do %>
+
+    const calcul = () => {
+      const start_d = document.getElementById('booking_start_date');
+      const end_d = document.getElementById('booking_end_date');
+      const start = Date.parse(start_d.value);
+      const end =  Date.parse(end_d.value);
+      const days = (end - start) / 86400000;
+      const price = <%= @cheval.price %>;
+      total = days * price;
+      if (total >=0) {
+        document.getElementById('price_show').innerHTML = `Price : ${total} €`;
+      } else {
+        document.getElementById('price_show').innerHTML = `Not good date`;
+    }
+    };
+    setInterval(calcul, 10);
+
+  <% end %>
+<% end %>
