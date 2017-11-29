@@ -9,6 +9,7 @@ class Cheval < ApplicationRecord
   validates :taille, presence: true
 
   has_many :profiles, through: :bookings
-  has_many :reviews
+  has_many :reviews, dependent: :destroy
+  has_many :bookings, dependent: :destroy
 
 end

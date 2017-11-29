@@ -17,5 +17,12 @@
         </br>
         <%= link_to 'Ce cheval est mort', cheval_path(@cheval), class: "btn btn-danger",  method: :delete, data: { confirm: "Le vétérinaire confirme ?" } %>
         </br>
+         <%= link_to 'Noter ce cheval', new_cheval_review_path(@cheval), class: "btn btn-primary" %>
+        </br>
         <%= link_to 'Retour a tous les chevals', chevals_path, class: "btn btn-primary" %>
+
+        <h3> Les avis <h3>
+        <% @cheval.reviews.each do |review, rating| %>
+      <li><%= review.content %> -  Etoiles : <%= review.rating %> </li>
+      <% end%>
 </div>
