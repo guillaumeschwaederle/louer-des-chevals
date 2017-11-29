@@ -1,23 +1,26 @@
 class BookingsController < ApplicationController
   before_action :set_cheval, only: [:new, :create, :edit, :update]
-  before_action :set_booking, only: [:show, :edit, :destroy]
+  before_action :set_booking, only: [:show, :edit, :update, :destroy]
 
   def show
   end
 
   def new
-    @booking = Booking.new
+    if current_user
+      @booking = Booking.new
+    else
+      redirect_to new_user_session_path
+    end
   end
 
   def create
     @booking = Booking.new(booking_params)
+    @booking.profile = current_user.profile
     @booking.cheval = @cheval
     @booking.save
     if @booking.save
-      fail
       redirect_to cheval_path(params[:cheval_id])
     else
-      fail
       render :new
     end
   end
@@ -27,7 +30,7 @@ class BookingsController < ApplicationController
 
   def update
     @booking.update(booking_params)
-    redirect_to booking_path(@booking)
+    redirect_to cheval_booking_path(@booking)
   end
 
   def destroy

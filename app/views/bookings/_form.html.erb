@@ -4,8 +4,6 @@
   <h2>Fin de la location : </h2>
   <%= f.date_field :end_date, as: :date, min: Date.today, html5: true, class: 'form-control form-control-lg' %>
   <h2 id="price_show"></h2>
-  <%= f.input :profile_id, as: :hidden, value: current_user.profile %>
-  <%= f.input :cheval_id, as: :hidden, value: @cheval %>
   <%= f.input :message, label: 'Message pour le propriétaire (max 150 caractères)', placeholder: 'Je souhaiterais louer votre cheval, pour faire des choses tout à fait normales avec.' %>
   <%= f.submit "Submit your booking", class: "btn btn-primary" %>
 <% end %>
@@ -28,7 +26,7 @@
         document.getElementById('price_show').innerHTML = `Not good date`;
     }
     };
-    setInterval(calcul, 10);
+    setInterval(calcul, 100);
 
   <% end %>
 <% end %>
