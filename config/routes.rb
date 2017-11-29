@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  resources :profiles, only: [:new, :create, :edit, :update, :destroy, :show]
+  resources :profiles, only: [:new, :create, :edit, :update, :show]
 
   resources :chevals do
     resources :reviews, only: [:new, :create, :edit, :update, :destroy]
