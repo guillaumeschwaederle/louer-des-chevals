@@ -35,12 +35,13 @@ profile.save!
     cheval = Cheval.create!(
     name: Faker::DragonBall.character,
     description: Faker::Lorem.paragraph,
-    address: Faker::Name.name,
     pattes: (1..5).to_a.sample,
     taille: Faker::Number.number(3),
     price: Faker::Number.number(2),
     robe: Robe.all.sample,
     category: Category.all.sample,
+    ville: ["Paris", "Lille", "Marseille", "Amiens", "Arras", "Lyon", "Bordeaux"].sample,
+    rue: "30 Rue de Paris",
     profile: profile
     )
     puts "cheval created"
