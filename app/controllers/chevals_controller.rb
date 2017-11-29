@@ -41,6 +41,6 @@ class ChevalsController < ApplicationController
   end
 
   def cheval_params
-    params.require(:cheval).permit(:name, :description, :address, :taille, :price, :pattes, :robe_id, :category_id)
+    params.require(:cheval).permit(:name, :description, :address, :taille, :price, :pattes, :ville, :rue, :robe_id, :category_id)
   end
 end
