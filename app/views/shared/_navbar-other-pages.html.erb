@@ -12,11 +12,11 @@
 
   <!-- Right Navigation -->
   <div class="navbar-wagon-right hidden-xs hidden-sm">
-
-    <%= link_to "Mes Réservations", profile_mesreservations_path(current_user.profile), class: "navbar-wagon-item navbar-wagon-link" %>
-     <p>|</p>
-    <%= link_to "Mon Ecurie", profile_monecurie_index_path(current_user.profile), class: "navbar-wagon-item navbar-wagon-link" %>
-
+    <% if current_user.profile %>
+      <%= link_to "Mes Réservations", profile_mesreservations_path(current_user.profile), class: "navbar-wagon-item navbar-wagon-link" %>
+       <p>|</p>
+      <%= link_to "Mon Ecurie", profile_monecurie_index_path(current_user.profile), class: "navbar-wagon-item navbar-wagon-link" %>
+    <% end %>
 
     <div class="navbar-wagon-item">
       <div class="dropdown">
