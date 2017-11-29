@@ -1,6 +1,9 @@
 source 'https://rubygems.org'
 ruby '2.3.5'
 
+#Update images
+gem 'carrierwave', '~> 0.11.2'
+gem 'cloudinary'
 #Project
 #user
 gem 'devise'
