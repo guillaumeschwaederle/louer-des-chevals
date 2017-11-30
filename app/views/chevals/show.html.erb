@@ -1,5 +1,5 @@
 
-<div class="container">
+
 <h1 class="text-center"><%= @cheval.name %></h1>
 
   <h3><%= @cheval.category.name.capitalize %></h3>
@@ -12,12 +12,17 @@
     </br>
     Rue: <%= @cheval.rue %>
     </br>
+
+
+    <%= cl_image_tag @cheval.photo, height: 500, width: 1000, crop: :fill %><br>
+
     La taille : <%= @cheval.taille.to_s.chars.first %>,<%= @cheval.taille.to_s.chars[-2..-1].join %> mètres au garot
     </br>
     Pattes: <%= @cheval.pattes %> patte<% if @cheval.pattes > 1%><%="s"%><% end %>
   </p>
   </br>
-  </br>
+
+
 
 <!-- Bouton de proprio -->
   <% if current_user && current_user.profile == @cheval.profile %>
@@ -48,5 +53,4 @@ et renvoyer sur sign in si pas de user -->
   <% @cheval.reviews.each do |review, rating| %>
     <li><%= review.content %> -  Etoiles : <%= review.rating %> </li>
   <% end%>
-</div>
 
