@@ -21,7 +21,7 @@ end
 
 user = User.create!(
     email: "user@gmail.com",
-    password: "123456"  
+    password: "123456"
 )
 
 profile = Profile.new(

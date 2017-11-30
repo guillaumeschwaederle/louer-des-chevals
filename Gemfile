@@ -5,6 +5,14 @@ ruby '2.3.5'
 gem 'carrierwave', '~> 0.11.2'
 gem 'cloudinary'
 #Project
+#map
+gem "geocoder"
+gem "coffee-rails"
+gem "gmaps4rails"
+
+source 'https://rails-assets.org' do
+  gem "rails-assets-underscore"
+end
 #user
 gem 'devise'
 #seeds
@@ -26,6 +34,8 @@ gem 'simple_form'
 gem 'uglifier'
 
 group :development, :test do
+  gem 'binding_of_caller'
+  gem 'better_errors'
   gem 'pry-byebug'
   gem 'pry-rails'
   gem 'web-console', '>= 3.3.0'
