@@ -15,6 +15,7 @@
         </br>
         Pattes: <%= @cheval.pattes %> patte<% if @cheval.pattes > 1%><%="s"%><% end %></p>
         </br>
+        <%= cl_image_tag @cheval.photo, height: 500, width: 1000, crop: :fill %>
         </br>
 
         <%= link_to 'louer ce cheval', new_cheval_booking_path(@cheval), class: "btn btn-success" %>
