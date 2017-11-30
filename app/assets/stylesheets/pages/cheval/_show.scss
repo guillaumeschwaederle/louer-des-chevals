@@ -1,21 +1,142 @@
 .main-container-show {
   display: flex;
+    margin: 0 auto;
 }
 
 .photo-center {
-    width: 100%;
-    padding-left: 5%;
+    width: 1140px;
+    position: relative;
+}
+
+.photo-center h1 {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  color: white;
+  font-size: 60px;
+  letter-spacing: 2px;
+}
+
+.category_cheval_show {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    color: white;
+    letter-spacing: 2px;
+    font-size: 15px;
+    background-color: black;
+    opacity: 0.9;
+    padding: 8px 17px;
+}
+
+.robe_cheval_show {
+    position: absolute;
+    top: 60px;
+    left: 10px;
+    color: white;
+    letter-spacing: 2px;
+    font-size: 15px;
+    background-color: black;
+    opacity: 0.9;
+    padding: 8px 17px;
 }
 
 .cheval-info {
-
+  max-width: 800px;
+  margin: 0 auto;
+  margin-top: 40px;
 }
 
 .sidebar-show-cheval {
-  background-color: red;
+  background-color: white;
   flex: 0 0 450px;
   height: 100vh;
   position: sticky !important; /* !important to override Gmaps inline CSS */
   top: 0 !important;
-  
 }
+
+.icons {
+  margin-bottom: 30px;
+}
+
+.icon {
+  margin-right : 20px;
+  margin-bottom: 20px;
+}
+
+.retour-navigation {
+  width: 100%;
+  text-align: center;
+  text-transform: 800;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  opacity: 0.8;
+  background-color: black;
+  color: white;
+  margin-bottom: 30px;
+  margin-top: 30px;
+}
+
+.retour-navigation a {
+  color: white;
+}
+
+.retour-navigation a:hover {
+  color: white;
+  text-decoration: none;
+}
+
+.retour-navigation:hover {
+  width: 100%;
+  text-align: center;
+  text-transform: 800;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  opacity: 1;
+  text-decoration: none;
+}
+
+.sidebar-content {
+  padding-top: 20px;
+  text-align: center;
+}
+
+.reviews {
+  background-color: white;
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  border-radius: 3px;
+  transition: all 0.15s ease;
+  margin-bottom: 20px;
+}
+.review-body {
+  flex: 1 1 auto;
+}
+
+.avis-title {
+  margin-bottom: 20px;
+}
+
+.sidebar-text {
+    padding: 40px 70px;
+    text-align: justify;
+}
+
+.btn-louer {
+    background-color: goldenrod;
+    border: 1px black solid;
+    color: white;
+    padding: 20px 120px;
+        text-transform: uppercase;
+}
+
+.btn-louer:hover {
+    background-color: black;
+    border: 1px black solid;
+    color: goldenrod;
+    padding: 20px 120px;
+    text-transform: uppercase;
+}
+
+
