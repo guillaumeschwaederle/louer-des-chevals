@@ -1,35 +1,75 @@
 
-<div class="container">
-<h1 class="text-center"><%= @cheval.name %></h1>
-      <h3><%= @cheval.category.name.capitalize %></h3>
-        </br>
-       <p> Description: <%= @cheval.description %>
-      </br>
-        Robe: <%= @cheval.robe.name %>
-       </br>
-       Ville: <%= @cheval.ville %>
-       </br>
-       Rue: <%= @cheval.rue %>
-       </br>
-       La taille : <%= @cheval.taille.to_s.chars.first %>,<%= @cheval.taille.to_s.chars[-2..-1].join %> mètres au garot
-        </br>
-        Pattes: <%= @cheval.pattes %> patte<% if @cheval.pattes > 1%><%="s"%><% end %></p>
-        </br>
-        </br>
-
-        <%= link_to 'louer ce cheval', new_cheval_booking_path(@cheval), class: "btn btn-success" %>
-        </br>
-        <%= link_to 'Noter ce cheval', new_cheval_review_path(@cheval), class: "btn btn-primary" %>
-        </br>
-       <%= link_to 'edit', edit_cheval_path(@cheval), class: "btn btn-primary" %>
-        </br>
-        <%= link_to 'Ce cheval est mort', cheval_path(@cheval), class: "btn btn-danger",  method: :delete, data: { confirm: "Le vétérinaire confirme ?" } %>
-        </br>
-
-        <%= link_to 'Retour a tous les chevals', chevals_path, class: "btn btn-primary" %>
-
-        <h3> Les avis <h3>
-        <% @cheval.reviews.each do |review, rating| %>
-      <li><%= review.content %> -  Etoiles : <%= review.rating %> </li>
-      <% end%>
+<div class="main-container-show">
+   <div class="container">
+      <div class="photo-center row">
+         <%= cl_image_tag @cheval.photo, height: 500, width: 1140, crop: :fill %>
+         <h1><%= @cheval.name %></h1>
+         <div class="category_cheval_show"> Type: <%= @cheval.category.name.capitalize %></div>
+         <div class="robe_cheval_show"> Robe: <%= @cheval.robe.name.capitalize %></div>
+      </div>
+      <div class="cheval-info row">
+         <div class="row icons">
+            <div class="col-xs-6">
+               <span class="icon fa fa-building fa-5"></span><%= @cheval.ville %>
+            </div>
+            <div class="col-xs-6">
+               <span class="icon fa fa-caret-up fa-5"></span><%= @cheval.taille.to_s.chars.first %>,<%= @cheval.taille.to_s.chars[-2..-1].join %> mètres au garot
+            </div>
+            <div class="col-xs-6">
+               <span class="icon fa fa-road fa-5"></span><%= @cheval.rue %>
+            </div>
+            <div class="col-xs-6">
+               <span class="icon fa fa-wheelchair fa-5"></span><%= @cheval.pattes %> patte<% if @cheval.pattes > 1%><%="s"%><% end %>
+            </div>
+         </div>
+         <!-- Bouton de noter de cheval sous conditions : si profil à fait un booking -->
+         <% if current_user && @cheval.profiles.include?(current_user.profile) %>
+         <%= link_to 'Noter ce cheval', new_cheval_review_path(@cheval), class: "btn btn-primary" %>
+         <% end %>
+         <h3 class="avis-title">
+            Les avis
+         </h3>
+         <% @cheval.reviews.each do |review, rating| %>
+         <div class="reviews">
+            <div class= "review-body">
+               <%=review.content %>
+            </div>
+            <ul class= "list-inline">
+            <% review.rating.to_i.times do %>
+            <li>
+               <%= cl_image_tag("horseshoe-black.png", :width=>20, :crop=>"scale") %>
+            </li>
+            <% end %>
+            </il>
+         </div>
+         <% end%>
+         <%= link_to chevals_path do%>
+         <div class="retour-navigation">
+            <span>RETOUR AUX CHEVALS</span>
+         </div>
+         <% end %>
+      </div>
+   </div>
+   <div class="sidebar-show-cheval">
+      <div class="sidebar-content">
+         <div class ="sidebar-text">
+            <b>Description:</b>
+            <p><%= @cheval.description %> </p>
+         </div>
+         <!-- Bouton de proprio -->
+         <% if current_user && current_user.profile == @cheval.profile %>
+         <%= link_to 'Edit', edit_cheval_path(@cheval), class: "btn btn-primary btn-cheval" %>
+         <%= link_to 'Ce cheval est mort', cheval_path(@cheval), class: "btn btn-danger btn-cheval",  method: :delete, data: { confirm: "Le vétérinaire confirme ?" } %>
+         <% end %>
+         <!-- Bouton de location en fonction de profil : innexistant si proprio, location si user co,
+            et renvoyer sur sign in si pas de user -->
+         <% if current_user && current_user.profile != @cheval.profile %>
+         <%= link_to 'Louer ce cheval', new_cheval_booking_path(@cheval), class: "btn btn-louer" %>
+         <% elsif current_user && current_user.profile == @cheval.profile %>
+         <% else %>
+         <%= link_to 'Louer ce cheval', new_user_session_path, class: "btn btn-louer" %>
+         <% end %>
+      </div>
+   </div>
 </div>
+
