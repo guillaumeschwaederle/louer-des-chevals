@@ -8,5 +8,7 @@
     <%= f.input :rue, placeholder: "30, rue de bethune" %>
     <%= f.input :robe_id, collection: Robe.all, placeholder: @cheval.robe %>
     <%= f.input :category_id, collection: Category.all %>
+    <%= f.input :photo %>
+    <%= f.input :photo_cache, as: :hidden %>
     <%= f.button :submit, class: "btn btn-primary"  %>
 <% end %>

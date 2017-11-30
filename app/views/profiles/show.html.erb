@@ -4,6 +4,7 @@
     <h2> Mon nom : <%= @profile.first_name %></h2>
     <h2> Mon prénom : <%= @profile.last_name %></h2>
     <h2> Mon numéro de téléphone : <%= @profile.phone_number %></h2>
+    <%= cl_image_tag @profile.photo, height: 500, width: 1000, crop: :fill %>
 
   <div class='action'>
   <%= link_to 'Editer mon profil', edit_profile_path(@profile), class: "btn btn-primary" %>
