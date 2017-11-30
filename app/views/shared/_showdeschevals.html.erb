@@ -3,7 +3,7 @@
     <div class="row">
         <% @chevals.each do |cheval| %>
 
-            <div class="col-xs12  col-lg-3">
+            <div class="col-xs-12 col-md-4 col-lg-3">
             <div class="card-cheval">
                <%= cl_image_tag cheval.photo, height: 400, width: 440, crop: :fill %>
                <div class="card-info label bottom-left">
@@ -13,5 +13,4 @@
             </div>
         <% end %>
     </div>
-
 </div>
