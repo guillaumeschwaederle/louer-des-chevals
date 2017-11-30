@@ -1,4 +1,6 @@
 class ProfilesController < ApplicationController
+  skip_before_action :profile_present?
+
   def new
     @profile = Profile.new
   end
@@ -34,3 +36,4 @@ class ProfilesController < ApplicationController
   params.require(:profile).permit(:first_name, :last_name, :phone_number, :user_id)
   end
 end
+
