@@ -15,10 +15,10 @@
                      <span class="icon fa fa-building fa-5"></span><%= @cheval.ville %>
                   </div>
                   <div class="col-xs-6">
-                     <span class="icon fa fa-road fa-5"></span><%= @cheval.rue %>
+                     <span class="icon fa fa-caret-up fa-5"></span><%= @cheval.taille.to_s.chars.first %>,<%= @cheval.taille.to_s.chars[-2..-1].join %> mètres au garot 
                   </div>
                   <div class="col-xs-6">
-                     <span class="icon fa fa-caret-up fa-5"></span><%= @cheval.taille.to_s.chars.first %>,<%= @cheval.taille.to_s.chars[-2..-1].join %> mètres au garot 
+                     <span class="icon fa fa-road fa-5"></span><%= @cheval.rue %>
                   </div>
                   <div class="col-xs-6">
                      <span class="icon fa fa-wheelchair fa-5"></span><%= @cheval.pattes %> patte<% if @cheval.pattes > 1%><%="s"%><% end %>
@@ -42,16 +42,18 @@
           <ul class= "list-inline">
           <% review.rating.to_i.times do %>
           <li>
-          <%= cl_image_tag("horseshoe-black.png", :width=>40, :crop=>"scale") %>
+          <%= cl_image_tag("horseshoe-black.png", :width=>20, :crop=>"scale") %>
           </li>
            <% end %>
            </il>
           </div>
          <% end%>
 
+                      <%= link_to chevals_path do%>
                   <div class="retour-navigation">
-            <%= link_to 'Retour a tous les chevals', chevals_path%>
-         </div>
+                        <span>RETOUR AUX CHEVALS</span>
+                                    </div>
+            <% end %>
          
       </div>
    </div>
