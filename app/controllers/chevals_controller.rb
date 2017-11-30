@@ -3,9 +3,16 @@ class ChevalsController < ApplicationController
 
   def index
     @chevals = Cheval.all
+    @chevals = Cheval.where.not(latitude: nil, longitude: nil)
+    @markers = Gmaps4rails.build_markers(@chevals) do |cheval, marker|
+      marker.lat cheval.latitude
+      marker.lng cheval.longitude
+      marker.infowindow ("Ici se trouve : #{cheval.name}")
+    end
   end
 
   def show
+     @cheval_coordinates = { lat: @cheval.latitude, lng: @cheval.longitude }
   end
 
   def new
