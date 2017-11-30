@@ -1,53 +1,42 @@
 .cards-container{
   flex-grow: 1;
-  padding: 0 15px;
+
 }
 
-.card {
-  background-size: cover;
-  background-position: center;
-  color: white;
-  font-size: 25px;
-  font-weight: bold;
-  text-align: center;
-  padding: 50px;
-  height: 160px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-top: 40px;
-  margin-bottom: 35px;
+.card-cheval {
   position: relative;
-  border-bottom: 3px solid goldenrod;
+margin-bottom: 50px;
 }
 
-.card-description {
-  padding: 15px 25px;
+.card-info {
   position: absolute;
-  top: 10px;
-  left: 10px;
-  font-size: 15px;
-  text-transform: uppercase;
   color: white;
 }
 
-.card-description p {
-  font-size: 14px;
-  opacity: 0.7;
-  font-weight: lighter;
-}
-.card-link {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  right: 0;
-  width: 100%;
-  z-index: 2;
-  background: black;
-  opacity: 0;
-}
-.card :hover {
-  opacity: 0.8;
-  padding: 15px 25px;
+.bottom-left {
+    bottom: 10px;
+    left: 20px;
 }
 
+.top-left {
+    top: 10px;
+    left: 20px;
+}
+
+
+.label {
+
+    font-weight: 200;
+
+}
+
+.label h2 {
+    font-size: 56px;
+}
+
+
+
+.grey-label {
+    opacity: 0.7;
+    font-size: 30px;
+}
