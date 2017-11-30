@@ -1,10 +1,11 @@
 class BookingsController < ApplicationController
   before_action :set_cheval, only: [:new, :create, :edit, :update]
-  before_action :set_booking, only: [:show, :edit, :update, :destroy]
+  before_action :set_booking, only: [:edit, :update, :destroy]
   before_action :set_modif_statut, only: [:validate, :refuse, :cancel]
   # after_action :redirect_mes_clients, only: [:validate, :refuse, :cancel]
 
   def show
+    @booking = Booking.find(params[:cheval_id])
   end
 
   def new
@@ -28,6 +29,9 @@ class BookingsController < ApplicationController
   end
 
   def edit
+    unless current_user.profile == @booking.profile
+      redirect_to cheval_booking_path(@booking)
+    end
   end
 
   def update

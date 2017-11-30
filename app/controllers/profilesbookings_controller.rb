@@ -1,5 +1,9 @@
 class ProfilesbookingsController < ApplicationController
   def index
-    @bookings = current_user.profile.bookings
+    if current_user
+      @bookings = current_user.profile.bookings
+    else
+      redirect_to new_user_session_path
+    end
   end
 end
