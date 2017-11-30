@@ -1,36 +1,49 @@
 
-<div class="container">
+
 <h1 class="text-center"><%= @cheval.name %></h1>
-      <h3><%= @cheval.category.name.capitalize %></h3>
-        </br>
-       <p> Description: <%= @cheval.description %>
-      </br>
-        Robe: <%= @cheval.robe.name %>
-       </br>
-       Ville: <%= @cheval.ville %>
-       </br>
-       Rue: <%= @cheval.rue %>
-       </br>
-       La taille : <%= @cheval.taille.to_s.chars.first %>,<%= @cheval.taille.to_s.chars[-2..-1].join %> mètres au garot
-        </br>
-        Pattes: <%= @cheval.pattes %> patte<% if @cheval.pattes > 1%><%="s"%><% end %></p>
-        </br>
-        <%= cl_image_tag @cheval.photo, height: 500, width: 1000, crop: :fill %>
-        </br>
+  <h3><%= @cheval.category.name.capitalize %></h3>
+  </br>
+  <p> Description: <%= @cheval.description %>
+    </br>
+    Robe: <%= @cheval.robe.name %>
+    </br>
+    Ville: <%= @cheval.ville %>
+    </br>
+    Rue: <%= @cheval.rue %>
+    </br>
 
-        <%= link_to 'louer ce cheval', new_cheval_booking_path(@cheval), class: "btn btn-success" %>
-        </br>
-        <%= link_to 'Noter ce cheval', new_cheval_review_path(@cheval), class: "btn btn-primary" %>
-        </br>
-       <%= link_to 'edit', edit_cheval_path(@cheval), class: "btn btn-primary" %>
-        </br>
-        <%= link_to 'Ce cheval est mort', cheval_path(@cheval), class: "btn btn-danger",  method: :delete, data: { confirm: "Le vétérinaire confirme ?" } %>
-        </br>
-    
-        <%= link_to 'Retour a tous les chevals', chevals_path, class: "btn btn-primary" %>
+    <%= cl_image_tag @cheval.photo, height: 500, width: 1000, crop: :fill %><br>
+    La taille : <%= @cheval.taille.to_s.chars.first %>,<%= @cheval.taille.to_s.chars[-2..-1].join %> mètres au garot
+    </br>
+    Pattes: <%= @cheval.pattes %> patte<% if @cheval.pattes > 1%><%="s"%><% end %>
+  </p>
+  </br>
 
-        <h3> Les avis <h3>
-        <% @cheval.reviews.each do |review, rating| %>
-      <li><%= review.content %> -  Etoiles : <%= review.rating %> </li>
-      <% end%>
-</div>
+<!-- Bouton de proprio -->
+  <% if current_user && current_user.profile == @cheval.profile %>
+    <%= link_to 'Edit', edit_cheval_path(@cheval), class: "btn btn-primary" %>
+    </br>
+    <%= link_to 'Ce cheval est mort', cheval_path(@cheval), class: "btn btn-danger",  method: :delete, data: { confirm: "Le vétérinaire confirme ?" } %>
+  <% end %>
+
+<!-- Bouton de location en fonction de profil : innexistant si proprio, location si user co,
+et renvoyer sur sign in si pas de user -->
+  <% if current_user && current_user.profile != @cheval.profile %>
+    <%= link_to 'Louer ce cheval', new_cheval_booking_path(@cheval), class: "btn btn-success" %>
+  <% elsif current_user && current_user.profile == @cheval.profile %>
+  <% else %>
+    <%= link_to 'Louer ce cheval', new_user_session_path, class: "btn btn-success" %>
+  <% end %>
+
+
+<!-- Bouton de noter de cheval sous conditions : si profil à fait un booking -->
+  <% if current_user && @cheval.profiles.include?(current_user.profile) %>
+    <%= link_to 'Noter ce cheval', new_cheval_review_path(@cheval), class: "btn btn-primary" %>
+  <% end %>
+
+  <%= link_to 'Retour a tous les chevals', chevals_path, class: "btn btn-primary" %>
+
+  <h3> Les avis <h3>
+  <% @cheval.reviews.each do |review, rating| %>
+    <li><%= review.content %> -  Etoiles : <%= review.rating %> </li>
+  <% end%>
