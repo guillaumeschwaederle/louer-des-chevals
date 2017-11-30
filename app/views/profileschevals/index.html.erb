@@ -1,8 +1,8 @@
   <% @chevals.each do |cheval| %>
     <%= link_to cheval_path(cheval) do %>
       <ul>
-        <%= cheval.name %>
-        <%= cheval.price %>
+        <li><%= cheval.name %></li>
+        <li><%= cheval.price %></li>
       </ul>
     <% end %>
   <% end %>

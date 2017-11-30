@@ -7,4 +7,6 @@ class Profile < ApplicationRecord
   has_many :chevals, dependent: :destroy
   has_many :reviews, dependent: :destroy
   has_many :bookings, dependent: :destroy
+
+  mount_uploader :photo, PhotoUploader
 end
