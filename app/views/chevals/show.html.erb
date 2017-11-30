@@ -1,6 +1,7 @@
 
 <div class="container">
 <h1 class="text-center"><%= @cheval.name %></h1>
+
   <h3><%= @cheval.category.name.capitalize %></h3>
   </br>
   <p> Description: <%= @cheval.description %>
@@ -48,3 +49,4 @@ et renvoyer sur sign in si pas de user -->
     <li><%= review.content %> -  Etoiles : <%= review.rating %> </li>
   <% end%>
 </div>
+
