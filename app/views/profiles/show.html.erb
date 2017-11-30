@@ -1,9 +1,9 @@
 <h1>Ceci est la show page du profile !</h1>
 <div class='container'>
   <div class='row'>
-    <h2> Mon nom : <%= @profile.first_name %></h2>
-    <h2> Mon prénom : <%= @profile.last_name %></h2>
-    <h2> Mon numéro de téléphone : <%= @profile.phone_number %></h2>
+    <p> Mon nom : <%= @profile.first_name %></p>
+    <p> Mon prénom : <%= @profile.last_name %></p>
+    <p> Mon numéro de téléphone : <%= @profile.phone_number %></p>
     <% if current_user.profile.photo? %>
     <%= cl_image_tag @profile.photo, height: 150, width: 150, crop: :thumb, gravity: :face %>
     <% else %>
