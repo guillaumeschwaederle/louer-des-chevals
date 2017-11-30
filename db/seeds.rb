@@ -91,8 +91,6 @@ users = []
     n += 1
 end
 
-
-
 (5..25).to_a.sample.times do
     p = users.sample.profile
     c = Cheval.all.sample
@@ -105,7 +103,7 @@ end
         cheval: c
     )
     r = Review.create!(
-        content: ["C'etait un super Cheval", "J'ai loué ce cheval pour faire des choses normales avec lui et je n'étais pas du tout decus.", "J'ai trouvé ce cheval très mordant", "I love that horse, but it didn't speak english", "El Caballo es muy grande", "Le Cheval c'est genial, mais celui la est exeptionel.", "Je ne pourrai jamais remonter à Cheval, je suis tombé et je me suis casser le dos."].sample,
+        content: ["C'etait un super Cheval", "J'ai loué ce cheval pour faire des choses normales avec lui", "J'ai trouvé ce cheval très mordant", "I love that horse, but it didn't speak english", "El Caballo es muy grande", "Le Cheval c'est genial, mais celui la est exeptionel.", "Je ne pourrai jamais remonter à Cheval, j'ai cassé mon dos."].sample,
         rating: (1..5).to_a.sample,
         profile: p,
         cheval: c
