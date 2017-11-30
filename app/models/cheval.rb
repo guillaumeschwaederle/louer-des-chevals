@@ -19,4 +19,6 @@ class Cheval < ApplicationRecord
   def address
     self.rue + " " + self.ville
   end
+  
+  mount_uploader :photo, PhotoUploader
 end

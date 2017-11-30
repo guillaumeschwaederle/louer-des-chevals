@@ -4,10 +4,16 @@
     <h2> Mon nom : <%= @profile.first_name %></h2>
     <h2> Mon prénom : <%= @profile.last_name %></h2>
     <h2> Mon numéro de téléphone : <%= @profile.phone_number %></h2>
-
-  <div class='action'>
+    <% if current_user.profile.photo? %>
+    <%= cl_image_tag @profile.photo, height: 150, width: 150, crop: :thumb, gravity: :face %>
+    <% else %>
+    <%= cl_image_tag "profilechevalempty", height: 150, width: 150 %>
+    <% end %>
   <%= link_to 'Editer mon profil', edit_profile_path(@profile), class: "btn btn-primary" %>
   <%= link_to "Retour à la liste des chevaux", chevals_path, class:"btn btn-primary"%>
   </div>
 </div>
+
+
+
 

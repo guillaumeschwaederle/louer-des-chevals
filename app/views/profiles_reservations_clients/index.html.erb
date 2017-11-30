@@ -1,0 +1,31 @@
+<div class="container">
+  <% @chevals.each do |cheval| %>
+    <div><h2> <%= cheval.name %> :</h2>
+        <% cheval.bookings.order("start_date asc").each do |booking| %>
+          <div class="message">
+            <%= cl_image_tag @profile.photo, class: "avatar-large" %>
+            <div class="message-name">
+              <h3><%= booking.profile.first_name %> <%= booking.profile.last_name %></h3>
+              <p><%= booking.start_date %></p>
+              <p><%= booking.end_date %></p>
+            </div>
+            <div class="message-body">
+              <p><strong><%= booking.message %></strong></p>
+            </div>
+            <div class="message-status">
+              <p class="status pending"><%= booking.statut %></p>
+              <% jour = ((booking.end_date.to_time - booking.start_date.to_time) / 86400).to_i %>
+              <p class="price"><%= jour * booking.cheval.price %>€</p>
+            </div>
+            <div>
+              <%= link_to "Annuler", cancel_path(id: booking.id), id: "cancel", class: "btn btn-warning" %>
+              <%= link_to "Valider", validate_path(id: booking.id), id: "validate", class: "btn btn-success" %>
+              <%= link_to "Refuser", refuse_path(id: booking.id), id: "refuse", class: "btn btn-danger" %>
+            </div>
+          </div>
+        <% end %>
+    </div>
+  <% end %>
+</div>
+
+
