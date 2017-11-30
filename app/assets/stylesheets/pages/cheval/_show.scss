@@ -1,9 +1,17 @@
-.main-container {
+.main-container-show {
   display: flex;
-  background-color: blue;
 }
 
-.sidebar-louer-ce-cheval {
+.photo-center {
+    width: 100%;
+    padding-left: 5%;
+}
+
+.cheval-info {
+
+}
+
+.sidebar-show-cheval {
   background-color: red;
   flex: 0 0 450px;
   height: 100vh;
