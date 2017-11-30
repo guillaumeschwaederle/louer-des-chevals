@@ -1,5 +1,7 @@
 <ul>
   <% @chevals.each do |cheval| %>
-    <li><%= cheval.name %></li>
+    <%= link_to cheval_path(cheval) do %>
+      <li><%= cheval.name %></li>
+    <% end %>
   <% end %>
 </ul>
