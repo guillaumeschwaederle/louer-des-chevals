@@ -16,7 +16,11 @@ class ChevalsController < ApplicationController
   end
 
   def new
-    @cheval = Cheval.new
+    if current_user
+      @cheval = Cheval.new
+    else
+      redirect_to new_user_session_path
+    end
   end
 
   def create
@@ -24,6 +28,9 @@ class ChevalsController < ApplicationController
   end
 
   def edit
+    unless current_user
+      redirect_to new_user_session_path
+    end
   end
 
   def update
