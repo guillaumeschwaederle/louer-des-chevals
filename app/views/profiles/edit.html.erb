@@ -1,9 +1,16 @@
 <div class="container">
-<h1> J'édite mon profil</h1>
-  <div class="row">
-    <div class="col-xs-12 col-sm-6 col-sm-offset-3">
+<h1 class="margin30bottom"> Editer mon profil</h1>
+  <div class="row ">
+    <div class="col-xs-6 margin30bottom">
       <%= render 'form' %>
-      <%= link_to 'Retour a tous les chevals', chevals_path %>
-    </div>
+      </div>
+      <div class="col-xs-6 margin30bottom">
+      <%= cl_image_tag("profile-new.jpg", :width=>500, :crop=>"scale") %>
+      </div>
+      <div class="row">
+      <div class="text-center">
+       <%= link_to "Retour aux chevals", chevals_path, class:"btn btn-primary btn-cheval"%>
+      </div>
+      </div>
   </div>
 </div>

@@ -1,11 +1,12 @@
 <%= simple_form_for [@cheval, @booking] do |f| %>
   <h2>Début de la location : </h2>
-  <%= f.date_field :start_date, as: :date, html5: true, min: Date.today, discard_day: true, class: 'form-control form-control-lg' %>
+  <%= f.date_field :start_date, as: :date,:value => Time.now.strftime('%Y-%m-%d'), html5: true, min: Date.today, discard_day: true, class: 'form-control form-control-lg' %>
   <h2>Fin de la location : </h2>
-  <%= f.date_field :end_date, as: :date, min: Date.today, html5: true, class: 'form-control form-control-lg' %>
-  <h2 id="price_show"></h2>
-  <%= f.input :message, label: 'Message pour le propriétaire (max 150 caractères)', placeholder: 'Je souhaiterais louer votre cheval, pour faire des choses tout à fait normales avec.' %>
-  <%= f.submit "Submit your booking", class: "btn btn-primary" %>
+  <%= f.date_field :end_date, as: :date, min: Date.today, html5: true, placeholder: "ANNEE-MOIS-JOUR dans cette ordre cowboy", class: 'form-control form-control-lg' %>
+  <h4 id="price_show"></h4>
+  <%= f.input :message, label: 'Message obligatoire pour le cowboy (150 caractères maximum)', placeholder: 'Je souhaiterais louer votre cheval, pour faire des choses tout à fait normales avec.' %>
+  <%= f.submit "Louer un Cheval", class: "btn btn-cheval text-center" %>
+  </br></br>
 <% end %>
 
 
@@ -23,7 +24,7 @@
       if (total >=0) {
         document.getElementById('price_show').innerHTML = `Price : ${total} €`;
       } else {
-        document.getElementById('price_show').innerHTML = `Not good date`;
+        document.getElementById('price_show').innerHTML = `Rentre la date de retour de mon cheval`;
     }
     };
     setInterval(calcul, 100);
