@@ -1,9 +1,10 @@
 <div class="main-container">
-
+  <div class="row">
+    <div class="col-xs-9">
     <%= render 'shared/showdeschevals' %>
+    </div>
 
-
-        <div id="map"></div>
+        <div id="map" class="col-xs-3"></div>
             <% content_for(:after_js) do %>
             <%= javascript_tag do %>
             var handler = Gmaps.build('Google');
@@ -18,5 +19,6 @@
             }
             });
             <% end %>
-            <% end %>
+          <% end %>
+  </div>
 </div>
