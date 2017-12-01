@@ -20,15 +20,16 @@
   <!-- Right Navigation -->
   <div class="navbar-wagon-right hidden-xs hidden-sm">
     <% if current_user.profile %>
-      <%= link_to "Mes Réservations", profile_mesreservations_path(current_user.profile), class: "navbar-wagon-item navbar-wagon-link" %>
-      <p>|</p>
+      <% if current_user.profile.valid? %>
+        <%= link_to "Mes Réservations", profile_mesreservations_path(current_user.profile), class: "navbar-wagon-item navbar-wagon-link" %>
+        <p>|</p>
       <% unless current_user.profile.chevals.empty? %>
         <%= link_to "Mon Ecurie", profile_monecurie_index_path(current_user.profile), class: "navbar-wagon-item navbar-wagon-link" %>
       <% else %>
         <%= link_to "Créer mon premier cheval", new_cheval_path, class: "navbar-wagon-item navbar-wagon-link" %>
-      <% end %>
-      <p>|</p>
+        <p>|</p>
       <%= link_to "Mes Clients", profile_mesclients_path(current_user.profile), class: "navbar-wagon-item navbar-wagon-link" %>
+      <% end %>
 
     <!-- Profile picture with dropdown menu -->
     <div class="navbar-wagon-item">
@@ -47,6 +48,7 @@
         </ul>
       </div>
     </div>
+    <% end %>
 
 
   </div>
