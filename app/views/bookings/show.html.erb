@@ -4,8 +4,7 @@
 <% if current_user.profile == @booking.profile %>
   <div class="reservation-btn">
   <%= link_to "Voir le cheval", cheval_path(@booking.cheval), class: "btn btn-cheval" %>
-
-  <%= link_to "Edit", edit_cheval_booking_path(@booking), class: "btn btn-cheval" %>
+  <%= link_to "Edit", edit_cheval_booking_path(@cheval, @booking), class: "btn btn-cheval" %>
   </div>
   <%= link_to "Annuler", cancel_path(id: @booking.id), id: "cancel", class: "btn btn-cheval btn-cheval-danger" %>
 <% end %>

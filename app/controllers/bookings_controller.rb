@@ -27,6 +27,7 @@ class BookingsController < ApplicationController
   end
 
   def edit
+    @cheval = @booking.cheval
     unless current_user.profile == @booking.profile
       redirect_to cheval_booking_path(@booking)
     end
