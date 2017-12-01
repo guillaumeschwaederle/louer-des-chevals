@@ -1,36 +1,36 @@
-<h1>Mes réservations : </h1>
-<div class="container">
-  <% @bookings.order("start_date desc").each do |booking| %>
-    <div class="message">
-      <% if booking.cheval.photo? %>
-        <%= cl_image_tag booking.cheval.photo, class: "avatar-large" %>
-      <% else %>
-        <%= cl_image_tag "logo_black.png", class: "avatar-large" %>
-      <% end %>
-      <div class="message-name">
-        <h3><%= booking.cheval.name %></h3>
-        <p><%= booking.start_date %></p>
-        <p><%= booking.end_date %></p>
-      </div>
-      <div class="message-body">
-        <p><strong><%= booking.cheval.category.name.capitalize %> - <%= booking.cheval.robe.name.capitalize %> - <%= booking.cheval.taille %>cm - <%= booking.cheval.pattes %>patte(s) - <%= booking.cheval.address %></strong></p>
-        <p><%= booking.cheval.description %></p>
-        <%= link_to "En voir plus", cheval_booking_path(booking.cheval, booking) %>
-      </div>
-      <div class="message-status end_message">
-        <p class="status pending"><%= booking.statut %></p>
-        <% jour = ((booking.end_date.to_time - booking.start_date.to_time) / 86400).to_i %>
-        <p class="price"><%= jour * booking.cheval.price %>€</p>
-      </div>
-      <div class="boutons end_message">
-        <% if current_user.profile == booking.profile %>
-          <%= link_to "Edit", edit_cheval_booking_path(booking.cheval, booking), class: "btn btn-warning" %>
-          <%= link_to "Annuler", cancel_path(id: booking.id), id: "cancel", class: "btn btn-danger" %>
+  <h1>Mes réservations : </h1>
+  <div class="container">
+    <% @bookings.order("start_date desc").each do |booking| %>
+      <div class="message">
+        <% if booking.cheval.photo? %>
+          <%= cl_image_tag booking.cheval.photo, class: "avatar-large" %>
+        <% else %>
+          <%= cl_image_tag "logo_black.png", class: "avatar-large" %>
+        <% end %>
+        <div class="message-name">
+          <h3><%= booking.cheval.name %></h3>
+          <p><%= booking.start_date %></p>
+          <p><%= booking.end_date %></p>
+        </div>
+        <div class="message-body">
+          <p><strong><%= booking.cheval.category.name.capitalize %> - <%= booking.cheval.robe.name.capitalize %> - <%= booking.cheval.taille %>cm - <%= booking.cheval.pattes %>patte(s) - <%= booking.cheval.address %></strong></p>
+          <p><%= booking.cheval.description %></p>
+          <%= link_to "En voir plus", cheval_booking_path(booking.cheval, booking) %>
+        </div>
+        <div class="message-status end_message">
+          <p class="status pending"><%= booking.statut %></p>
+          <% jour = ((booking.end_date.to_time - booking.start_date.to_time) / 86400).to_i %>
+          <p class="price"><%= jour * booking.cheval.price %>€</p>
+        </div>
+        <div class="boutons end_message">
+          <% if current_user.profile == booking.profile %>
+            <%= link_to "Edit", edit_cheval_booking_path(booking.cheval, booking), class: "btn btn-warning" %>
+            <%= link_to "Annuler", cancel_path(id: booking.id), id: "cancel", class: "btn btn-danger" %>
+          <% end %>
+        </div>
+        <%= link_to cheval_booking_path(booking.cheval, booking), method: :delete, class: "end_message" do%>
+          <i class="fa fa-trash"></i>
         <% end %>
       </div>
-      <%= link_to cheval_booking_path(booking.cheval, booking), method: :delete, class: "end_message" do%>
-        <i class="fa fa-trash"></i>
-      <% end %>
-    </div>
-  <% end %>
-</div>
+    <% end %>
+  </div>
