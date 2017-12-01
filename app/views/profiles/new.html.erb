@@ -1,2 +1,11 @@
-<h1>Créez votre profil:</h1>
-<%= render 'form' %>
+<div class="container">
+   <div class="row">
+      <div class= "col-xs-6">
+         <h1 class="margin30bottom">Nous avons simplement besoin de votre nom.</h1>
+         <%= render 'form' %>
+      </div>
+      <div class= "col-xs-6">
+         <%= cl_image_tag("profile-new.jpg", :width=>600, :crop=>"scale") %>
+      </div>
+   </div>
+</div>

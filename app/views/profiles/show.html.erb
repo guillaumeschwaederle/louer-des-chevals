@@ -1,19 +1,29 @@
-<h1>Ceci est la show page du profile !</h1>
-<div class='container'>
-  <div class='row'>
-    <p> Mon nom : <%= @profile.first_name %></p>
-    <p> Mon prénom : <%= @profile.last_name %></p>
-    <p> Mon numéro de téléphone : <%= @profile.phone_number %></p>
-    <% if current_user.profile.photo? %>
-    <%= cl_image_tag @profile.photo, height: 150, width: 150, crop: :thumb, gravity: :face %>
-    <% else %>
-    <%= cl_image_tag "profilechevalempty", height: 150, width: 150 %>
-    <% end %>
-  <%= link_to 'Editer mon profil', edit_profile_path(@profile), class: "btn btn-primary" %>
-  <%= link_to "Retour à la liste des chevaux", chevals_path, class:"btn btn-primary"%>
-  </div>
+
+  <h1 class="text-center margin30bottom">Mon Profil</h1>
+   </br>
+   <div class='row'>
+      <div class= "col-xs-6">
+         <p> <b>Mon nom : </b> <%= @profile.first_name %></p>
+         <p> <b>Mon prénom : </b><%= @profile.last_name %></p>
+         <p> <b>Mon numéro de téléphone : </b> <%= @profile.phone_number %></p>
+         </br>
+      </div>
+      <div class= "col-xs-6 margin30bottom">
+         <% if current_user.profile.photo? %>
+         <%= cl_image_tag @profile.photo, height: 500, width: 400, crop: :thumb, gravity: :face %>
+         <% else %>
+         <%= cl_image_tag "profilechevalempty", height: 500, width: 400 %>
+         <% end %>
+        </br>
+      </div>
+      </div>
+      <div class="row">
+      <div class= "col-xs-6 margin30bottom">
+         <%= link_to "Retour aux chevals", chevals_path, class:"btn btn-primary btn-cheval"%>
+      </div>
+            <div class= "col-xs-6">
+         <%= link_to 'Editer mon profil', edit_profile_path(@profile), class: "btn btn-primary btn-cheval" %>
+      </div>
+      </div>
+   </div>
 </div>
-
-
-
-
