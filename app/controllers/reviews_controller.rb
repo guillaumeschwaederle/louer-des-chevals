@@ -11,7 +11,6 @@ class ReviewsController < ApplicationController
   def create
     @review = Review.new(review_params)
     @review.cheval = @cheval
-
     if @review.save
       redirect_to @cheval
     else
