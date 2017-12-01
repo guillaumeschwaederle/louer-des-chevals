@@ -27,10 +27,10 @@
     <div class="navbar-wagon-item">
       <div class="dropdown">
       <% if current_user.profile.photo? %>
-         <%= cl_image_tag current_user.profile.photo, width: 500, height: 500, class:"avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
+        <%= cl_image_tag current_user.profile.photo, width: 500, height: 500, class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
       <% else %>
-      <%= cl_image_tag "profilechevalempty",
-       width: 500, height: 500, class:"avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
+        <%= cl_image_tag "profilechevalempty",
+       width: 500, height: 500, class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
       <% end %>
 
         <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
