@@ -12,7 +12,7 @@ Rails.application.routes.draw do
 
   resources :chevals do
     resources :reviews, only: [:new, :create, :edit, :update, :destroy]
-    resources :bookings, only: [:show, :new, :create, :edit, :update, :destroy]
+    resources :bookings, only: [:show, :create, :edit, :update, :destroy]
   end
 
   devise_for :users

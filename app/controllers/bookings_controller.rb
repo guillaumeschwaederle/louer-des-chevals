@@ -1,5 +1,6 @@
 class BookingsController < ApplicationController
-  before_action :set_cheval, only: [:show, :new, :create, :edit, :update, :destroy]
+
+  before_action :set_cheval, only: [:show, :create, :edit, :update, :destroy]
   before_action :set_booking, only: [:show, :edit, :update, :destroy, :validate, :refuse, :cancel]
 
   def show
@@ -8,23 +9,20 @@ class BookingsController < ApplicationController
     end
   end
 
-  def new
-    if current_user
-      @booking = Booking.new
-    else
-      redirect_to new_user_session_path
-    end
-  end
-
   def create
-    @booking = Booking.new(booking_params)
-    @booking.profile = current_user.profile
-    @booking.cheval = @cheval
-    @booking.save
-    if @booking.save
-      redirect_to cheval_path(params[:cheval_id])
+    if current_user
+      @booking = Booking.new(booking_params)
+      @booking.profile = current_user.profile
+      @booking.cheval = @cheval
+      @booking.save
+      if @booking.save
+        redirect_to cheval_path(params[:cheval_id])
+      else
+        render :new
+      end
     else
-      render :new
+      flash[:notice] = "Vous n'êtes pas connecté"
+      redirect_to new_user_session_path
     end
   end
 
