@@ -72,6 +72,7 @@ photo_cheval_list = [
 
     cheval.remote_photo_url = photo_cheval_list.sample
     cheval.save
+    cheval.geocode
     puts "cheval created"
 end
 

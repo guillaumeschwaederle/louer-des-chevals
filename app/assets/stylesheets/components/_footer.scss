@@ -6,6 +6,10 @@
   height: 100px;
   padding: 0px 50px;
   color: rgba(0,0,0,0.3);
+  position: fixed;
+  bottom:0;
+  width: 100%;
+
 }
 .footer-links {
   display: flex;
@@ -23,4 +27,9 @@
 }
 .footer .fa-heart {
   color: #D23333;
+}
+
+
+.footer li {
+   list-style-type: none;
 }
