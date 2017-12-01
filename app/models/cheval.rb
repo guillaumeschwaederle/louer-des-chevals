@@ -14,11 +14,12 @@ class Cheval < ApplicationRecord
 
   geocoded_by :address
   after_validation :geocode, if: :rue_changed?
+  after_validation :geocode, if: :ville_changed?
 
 
   def address
     self.rue + " " + self.ville
   end
-  
+
   mount_uploader :photo, PhotoUploader
 end

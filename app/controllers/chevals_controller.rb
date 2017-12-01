@@ -2,8 +2,15 @@ class ChevalsController < ApplicationController
   before_action :set_cheval, only: [:show, :edit, :update, :destroy]
 
   def index
-    @chevals = Cheval.all
-    @chevals = Cheval.where.not(latitude: nil, longitude: nil)
+    if params[:search]
+      if params[:search][:address] == ""
+        @chevals = Cheval.all.where.not(latitude: nil, longitude: nil)
+      else
+        @chevals = Cheval.near(params[:search][:address], 20)
+      end
+     else
+      @chevals = Cheval.all.where.not(latitude: nil, longitude: nil)
+    end
     @markers = Gmaps4rails.build_markers(@chevals) do |cheval, marker|
       marker.lat cheval.latitude
       marker.lng cheval.longitude
@@ -32,7 +39,6 @@ class ChevalsController < ApplicationController
   def create
     @cheval = Cheval.new(cheval_params)
     @cheval.profile = current_user.profile
-    @cheval.save
     if @cheval.save
       redirect_to cheval_path(@cheval)
     else

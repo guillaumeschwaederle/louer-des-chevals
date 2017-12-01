@@ -4,10 +4,17 @@
 
   <%= link_to root_path, class: "navbar-wagon-brand" do %>
     <div class="navbar-wagon-brand">
-      <%= cl_image_tag("logo_black.png")%>
-  </div>
-    <% end %>
+        <%= cl_image_tag("logo_black.png")%>
+    </div>
+  <% end %>
 
+  <% unless request.path == root_path %>
+    <div class="searchbar">
+      <%= simple_form_for :search, url: chevals_path, method: 'get', html: {class: 'form-inline'}  do |f| %>
+          <%= f.input :address, placeholder: "Ex: Lille", label: false, required: false %>
+      <% end %>
+    </div>
+  <% end %>
 
 
   <!-- Right Navigation -->
