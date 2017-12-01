@@ -1,21 +1,12 @@
-<div class="cards-container">
+<div class="container">
+
   <h1 class="text-center title-show">Tous mes Chevals :</h1>
   <div class="row">
-     <div class="col-xs-12 col-md-4 col-lg-3">
-      <div class="card-cheval">
-        <%= link_to new_cheval_path do %>
-          <%= cl_image_tag "logo_black.png" , height: 400, width: 440, crop: :fill %>
-          <div class="card-info label bottom-left">
-            <h2><span class="grey-label" style="color: #434343">Créer un cheval</span></h2>
-          </div>
-        <% end %>
-      </div>
-    </div>
     <% @chevals.each do |cheval| %>
       <%= link_to cheval_path(cheval) do %>
-        <div class="col-xs-12 col-md-4 col-lg-3">
+        <div class="col-xs-12 col-md-4">
           <div class="card-cheval">
-            <%= cl_image_tag cheval.photo, height: 400, width: 440, crop: :fill %>
+            <%= cl_image_tag cheval.photo, height: 400, width: 440, crop: :fill, class:"img-responsive" %>
             <div class="card-info label bottom-left">
               <h2><%= cheval.name %> <span class="grey-label"> à <%= cheval.ville %></span></h2>
             </div>
@@ -23,6 +14,19 @@
         </div>
       <% end %>
     <% end %>
+    
+
+        <div class="col-xs-12 col-md-4">
+<div class="card-cheval">
+        <%= link_to new_cheval_path do %>
+          <%= cl_image_tag "new-cheval.jpg" , height: 400, width: 440, crop: :fill, class:"img-responsive" %>
+          <div class="card-info label bottom-left">
+            <h2><span class="grey-label" style="color: #434343">Une Pouliche est née</span></h2>
+          </div>
+        <% end %>
+      </div>
+
+    </div>
   </div>
 </div>
 

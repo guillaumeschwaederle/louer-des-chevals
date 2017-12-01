@@ -1,12 +1,8 @@
-  <h1>Mes réservations : </h1>
+
   <div class="container">
+    <h1>Mes réservations : </h1>
     <% @bookings.order("start_date desc").each do |booking| %>
       <div class="message">
-        <% if booking.cheval.photo? %>
-          <%= cl_image_tag booking.cheval.photo, class: "avatar-large" %>
-        <% else %>
-          <%= cl_image_tag "logo_black.png", class: "avatar-large" %>
-        <% end %>
         <div class="message-name">
           <h3><%= booking.cheval.name %></h3>
           <p><%= booking.start_date %></p>
@@ -24,8 +20,8 @@
         </div>
         <div class="boutons end_message">
           <% if current_user.profile == booking.profile %>
-            <%= link_to "Edit", edit_cheval_booking_path(booking.cheval, booking), class: "btn btn-warning" %>
-            <%= link_to "Annuler", cancel_path(id: booking.id), id: "cancel", class: "btn btn-danger" %>
+            <%= link_to "Edit", edit_cheval_booking_path(booking.cheval, booking), class: "btn btn-cheval" %>
+            <%= link_to "Annuler", cancel_path(id: booking.id), id: "cancel", class: "btn btn-cheval btn-cheval-danger" %>
           <% end %>
         </div>
         <%= link_to cheval_booking_path(booking.cheval, booking), method: :delete, class: "end_message" do%>

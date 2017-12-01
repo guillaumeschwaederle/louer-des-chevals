@@ -1,7 +1,13 @@
-<%= link_to "Voir le cheval", cheval_path(@booking.cheval), class: "btn btn-warning" %>
+<div class="container">
+
+
 <% if current_user.profile == @booking.profile %>
-  <%= link_to "Edit", edit_cheval_booking_path(@booking), class: "btn btn-success" %>
-  <%= link_to "Annuler", cancel_path(id: @booking.id), id: "cancel", class: "btn btn-danger" %>
+  <div class="reservation-btn">
+  <%= link_to "Voir le cheval", cheval_path(@booking.cheval), class: "btn btn-cheval" %>
+
+  <%= link_to "Edit", edit_cheval_booking_path(@booking), class: "btn btn-cheval" %>
+  </div>
+  <%= link_to "Annuler", cancel_path(id: @booking.id), id: "cancel", class: "btn btn-cheval btn-cheval-danger" %>
 <% end %>
 <h1>Votre réservation : </h1>
 <h2> Du <%= @booking.start_date %> au <%= @booking.end_date %></h2>
@@ -24,3 +30,4 @@
 <h2>Votre Message :</h2>
 <p><%= @booking.message %></p>
 
+</div>
