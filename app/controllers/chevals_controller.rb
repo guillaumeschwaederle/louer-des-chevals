@@ -12,7 +12,8 @@ class ChevalsController < ApplicationController
   end
 
   def show
-     @cheval_coordinates = { lat: @cheval.latitude, lng: @cheval.longitude }
+    @cheval_coordinates = { lat: @cheval.latitude, lng: @cheval.longitude }
+    @booking = Booking.new
   end
 
   def new
