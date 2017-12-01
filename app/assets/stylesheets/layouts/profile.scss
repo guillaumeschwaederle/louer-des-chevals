@@ -1,0 +1,24 @@
+.margin30bottom {
+    margin-bottom: 30px;
+}
+
+#profile_photo {
+    border: 1px solid black;
+    width: 100%;
+    opacity: 0.3;
+    padding: 30px 30px;
+        background-color: goldenrod;
+            letter-spacing: 1px;
+}
+
+#profile_photo:hover {
+    border: 1px solid black;
+    width: 100%;
+    opacity: 0.8;
+    padding: 30px 30px;
+    background-color: black;
+    color: goldenrod;
+        letter-spacing: 1px;
+
+
+}

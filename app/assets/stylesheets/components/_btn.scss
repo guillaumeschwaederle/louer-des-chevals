@@ -1,9 +1,10 @@
 .btn-cheval {
-   color: #fff;
-    background-color: #0000007a;
+   color: black;
+    background-color: goldenrod;
     border-color: white;
     padding: 20px 60px;
-    opacity: 0.8
+    opacity: 0.8;
+    letter-spacing: 1px;
 }
 
 .btn-cheval a {
@@ -12,8 +13,8 @@
 
 
 .btn-cheval:hover {
-    color: #fff;
-    background-color: #0000007a;
+    color: goldenrod;
+    background-color: black;
     border-color: white;
     padding: 20px 60px;
    opacity: 1;
