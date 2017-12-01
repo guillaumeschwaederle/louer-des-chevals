@@ -2,16 +2,16 @@
       <h1 class="text-center title-show">Tous les Chevals</h1>
     <div class="row">
         <% @chevals.each do |cheval| %>
-
-            <div class="col-xs12  col-lg-3">
-            <div class="card-cheval">
-               <%= cl_image_tag cheval.photo, height: 400, width: 440, crop: :fill %>
-               <div class="card-info label bottom-left">
-                <h2><%= cheval.name %> <span class="grey-label"> à <%= cheval.ville %></span></h2>
-               </div>
-               </div>
+          <%= link_to cheval_path(cheval) do %>
+            <div class="col-xs-12 col-md-4 col-lg-3">
+              <div class="card-cheval">
+                <%= cl_image_tag cheval.photo, height: 400, width: 440, crop: :fill %>
+                <div class="card-info label bottom-left">
+                  <h2><%= cheval.name %> <span class="grey-label"> à <%= cheval.ville %></span></h2>
+                </div>
+              </div>
             </div>
+          <% end %>
         <% end %>
     </div>
-
 </div>

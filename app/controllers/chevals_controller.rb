@@ -25,6 +25,13 @@ class ChevalsController < ApplicationController
 
   def create
     @cheval = Cheval.new(cheval_params)
+    @cheval.profile = current_user.profile
+    @cheval.save
+    if @cheval.save
+      redirect_to cheval_path(@cheval)
+    else
+      render :new
+    end
   end
 
   def edit

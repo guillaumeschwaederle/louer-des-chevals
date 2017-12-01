@@ -53,7 +53,7 @@ photo_cheval_list = [
         "https://images.unsplash.com/photo-1499404970935-f072c1086c9c?auto=format&fit=crop&w=1200&q=50&ixid=dW5zcGxhc2guY29tOzs7Ozs%3D",
         "https://images.unsplash.com/photo-1458431886725-0801460469c5?auto=format&fit=crop&w=1200&q=50&ixid=dW5zcGxhc2guY29tOzs7Ozs%3D",
         "https://images.unsplash.com/photo-1497138169556-ba5743a6031c?auto=format&fit=crop&w=1200&q=50&ixid=dW5zcGxhc2guY29tOzs7Ozs%3D",
-        
+
     ]
 
 10.times do
@@ -69,7 +69,7 @@ photo_cheval_list = [
     rue: "30 Rue de Paris",
     profile: profile
     )
-    
+
     cheval.remote_photo_url = photo_cheval_list.sample
     cheval.save
     puts "cheval created"
@@ -97,7 +97,7 @@ end
     b = Booking.create!(
         start_date: Faker::Date.between(14.days.ago, 7.days.ago),
         end_date: Faker::Date.between(6.days.ago, 1.days.ago),
-        statut: "Pending",
+        statut: "En cours",
         message: Faker::Seinfeld.quote,
         profile: p,
         cheval: c
