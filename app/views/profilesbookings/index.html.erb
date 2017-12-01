@@ -1,4 +1,11 @@
-  <h1>Mes réservations : </h1>
+
+<% if current_user.profile.bookings.empty? %>
+<h1 class= "text-center title-show"> Vous n'avez pas encore reservé de cheval </h1>
+    <center>
+    <%= link_to "Réserver mon premier cheval", chevals_path, class: "btn-cheval"%>
+    </center>
+<% else %>
+  <h1 class= "text-center title-show">Mes réservations : </h1>
   <div class="container">
     <% @bookings.order("start_date desc").each do |booking| %>
       <div class="message">
@@ -34,3 +41,4 @@
       </div>
     <% end %>
   </div>
+<% end %>
