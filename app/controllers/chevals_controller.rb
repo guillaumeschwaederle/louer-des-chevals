@@ -7,7 +7,12 @@ class ChevalsController < ApplicationController
     @markers = Gmaps4rails.build_markers(@chevals) do |cheval, marker|
       marker.lat cheval.latitude
       marker.lng cheval.longitude
-      marker.infowindow ("Ici se trouve : #{cheval.name}")
+      marker.infowindow ("
+        <div class = 'cheval-window'>
+           <p> Ici se trouve <strong>#{cheval.name}</strong></p>
+           <a href='#{cheval_path(cheval)}'><img src='#{cheval.photo_url}' style='width:140px;height:100px;'></a>
+        </div>
+        ")
     end
   end
 
