@@ -3,7 +3,7 @@
   <% @chevals.each do |cheval| %>
     <% unless cheval.bookings.empty? %>
       <div><h2> <%= cheval.name %> :</h2>
-          <% cheval.bookings.order("start_date asc").each do |booking| %>
+          <% cheval.bookings.order("start_date desc").each do |booking| %>
             <div class="message">
               <% if booking.profile.photo? %>
                 <%= cl_image_tag booking.profile.photo, class: "avatar-large" %>

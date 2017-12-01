@@ -1,6 +1,6 @@
 <h1>Mes réservations : </h1>
 <div class="container">
-  <% @bookings.order("start_date asc").each do |booking| %>
+  <% @bookings.order("start_date desc").each do |booking| %>
     <div class="message">
       <% if booking.cheval.photo? %>
         <%= cl_image_tag booking.cheval.photo, class: "avatar-large" %>
