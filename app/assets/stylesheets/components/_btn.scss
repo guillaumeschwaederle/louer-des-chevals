@@ -1,8 +1,8 @@
 .btn-cheval {
-   color: black;
+    color: black;
     background-color: goldenrod;
     border-color: white;
-    padding: 20px 60px;
+    padding: 20px 34px;
     opacity: 0.8;
     letter-spacing: 1px;
 }
@@ -16,9 +16,23 @@
     color: goldenrod;
     background-color: black;
     border-color: white;
-    padding: 20px 60px;
+    padding: 20px 34px;
    opacity: 1;
 }
 
+.btn-cheval-danger {
+    color: rgb(181, 0, 0);
+    text-transform: uppercase;
+    font-weight: 800;
+    margin-top: 30px;
+    width: 100%;
+    border: 5px rgb(181, 0, 0) solid;
+}
 
-    
+.btn-cheval-danger:hover {
+    color: rgb(181, 0, 0);
+}
+
+.full-width-btn {
+    width: 100%;
+}

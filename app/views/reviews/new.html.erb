@@ -1,2 +1,10 @@
-<%= render 'form' %>
-<%= link_to "Retour au cheval", chevals_path, class: "btn btn-primary" %>
+<div class="container">
+<h1 class="text-center"> Donne ton avis, cowboy </h1>
+    <div class="row">
+        <div class="col-xs-12"
+            <%= render 'form' %>
+        </div>
+    </div>
+    <%= link_to "Retour a ce cheval", chevals_path, class: "btn retour-navigation" %>
+</div>
+</div>

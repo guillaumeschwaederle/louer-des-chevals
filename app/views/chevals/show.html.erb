@@ -29,12 +29,17 @@
             </div>
          </div>
          <!-- Bouton de noter de cheval sous conditions : si profil à fait un booking -->
-         <% if current_user && @cheval.profiles.include?(current_user.profile) %>
-         <%= link_to 'Noter ce cheval', new_cheval_review_path(@cheval), class: "btn btn-primary" %>
-         <% end %>
+         
          <h3 class="avis-title">
             Les avis
          </h3>
+         <div class="text-center">
+         <% if current_user && @cheval.profiles.include?(current_user.profile) %>
+         <%= link_to 'Noter ce cheval', new_cheval_review_path(@cheval), class: "btn btn-cheval center-text" %>
+         <% end %>
+         </br>
+         </br>
+         </div>
          <% @cheval.reviews.each do |review, rating| %>
          <div class="reviews">
             <div class= "review-body">
@@ -50,7 +55,7 @@
          </div>
          <% end%>
          <%= link_to chevals_path do%>
-         <div class="retour-navigation">
+         <div class="retour-navigation text-center center-text">
             <span>RETOUR AUX CHEVALS</span>
          </div>
          <% end %>
@@ -61,8 +66,8 @@
         <!-- Bouton de proprio -->
         <% if current_user && current_user.profile == @cheval.profile %>
         <h6>Avez-vous des infos à mettre à jour ? </h6>
-          <%= link_to 'Edit', edit_cheval_path(@cheval), class: "btn btn-primary btn-cheval" %>
-          <%= link_to 'Ce cheval est mort', cheval_path(@cheval), class: "btn btn-danger btn-cheval",  method: :delete, data: { confirm: "Le vétérinaire confirme ?" } %>
+          <%= link_to 'Edit', edit_cheval_path(@cheval), class: "btn btn-cheval full-width-btn" %>
+          <%= link_to 'Ce cheval est mort', cheval_path(@cheval), class: "btn btn-cheval btn-cheval-danger",  method: :delete, data: { confirm: "Le vétérinaire confirme ?" } %>
         <% end %>
          <!-- Bouton de location en fonction de profil : innexistant si proprio, location si user co,
             et renvoyer sur sign in si pas de user -->

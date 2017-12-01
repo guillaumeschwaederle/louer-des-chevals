@@ -31,12 +31,23 @@ margin-bottom: 50px;
 }
 
 .label h2 {
-    font-size: 56px;
+    font-size: 30px;
 }
-
-
 
 .grey-label {
     opacity: 0.7;
-    font-size: 30px;
+    font-size: 20px;
 }
+
+
+@media screen and (max-width: 1200px) {
+.label h2 {
+    font-size: 20px;
+}
+
+.grey-label {
+    opacity: 0.7;
+    font-size: 15px;
+}
+}
+
