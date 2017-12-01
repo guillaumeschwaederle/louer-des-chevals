@@ -3,6 +3,9 @@ class ApplicationController < ActionController::Base
 
   before_action :profile_present?
 
+
+
+
  private
 
    def profile_present?
