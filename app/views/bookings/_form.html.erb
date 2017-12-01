@@ -1,3 +1,5 @@
+<div class="container">
+
 <%= simple_form_for [@cheval, @booking] do |f| %>
   <h2>Début de la location : </h2>
   <%= f.date_field :start_date, as: :date,:value => Time.now.strftime('%Y-%m-%d'), html5: true, min: Date.today, discard_day: true, class: 'form-control form-control-lg' %>
@@ -31,3 +33,5 @@
 
   <% end %>
 <% end %>
+
+<div>
