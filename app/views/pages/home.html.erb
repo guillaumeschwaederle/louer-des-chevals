@@ -3,8 +3,11 @@
   <div class="banner-content">
     <h1>Louer des chevals, c'est génial !</h1>
     <p>Monter à cheval partout en France</p>
-    <%= link_to "Voir les chevals", chevals_path, class: 'btn btn-primary btn-cheval' %>
+    <%= simple_form_for :search, url: chevals_path, method: 'get', html: {class: 'form-inline'}  do |f| %>
+        <%= f.input :ville, placeholder: "Ex: Lille", label: "Cherchez vos chevals par ville :" %>
+    <% end %>
   </div>
 </div>
+
 
 <%= render 'shared/showdeschevals' %>

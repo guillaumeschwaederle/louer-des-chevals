@@ -2,8 +2,14 @@ class ChevalsController < ApplicationController
   before_action :set_cheval, only: [:show, :edit, :update, :destroy]
 
   def index
-    @chevals = Cheval.all
-    @chevals = Cheval.where.not(latitude: nil, longitude: nil)
+    if params[:search]
+      if params[:search][:ville].nil?
+        @chevals = Cheval.all
+      else
+        @chevals = Cheval.where.not(latitude: nil, longitude: nil)
+        @chevals = Cheval.near(params[:search][:ville])
+      end
+    end
     @markers = Gmaps4rails.build_markers(@chevals) do |cheval, marker|
       marker.lat cheval.latitude
       marker.lng cheval.longitude
