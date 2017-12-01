@@ -1,3 +1,6 @@
-<%= link_to "Back", cheval_booking_path(@booking), class: "btn btn-warning" %>
 
 <%= render "form" %>
+
+<div class="container">
+    <%= link_to "Back", cheval_booking_path(@cheval, @booking), class: "btn retour-navigation text-center center-text" %>
+</div>

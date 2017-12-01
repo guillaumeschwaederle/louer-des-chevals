@@ -8,7 +8,6 @@
 <% else %>
   <h1 class= "text-center title-show">Mes réservations : </h1>
   <div class="container">
-    <h1>Mes réservations : </h1>
     <% @bookings.order("start_date desc").each do |booking| %>
       <div class="message">
         <div class="message-name">
