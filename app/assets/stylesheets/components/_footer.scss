@@ -24,6 +24,7 @@
 }
 .footer-links a:hover {
   opacity: 1;
+  color: goldenrod;
 }
 .footer .fa-heart {
   color: #D23333;
@@ -32,4 +33,9 @@
 
 .footer li {
    list-style-type: none;
+}
+
+.bottom {
+  position:absolute;
+  bottom:0;
 }
