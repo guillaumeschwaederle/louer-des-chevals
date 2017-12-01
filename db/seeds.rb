@@ -56,7 +56,7 @@ photo_cheval_list = [
 
     ]
 
-10.times do
+30.times do
     cheval = Cheval.create!(
     name: Faker::Cat.name,
     description: Faker::Lorem.paragraph,
@@ -92,7 +92,7 @@ users = []
     n += 1
 end
 
-(5..25).to_a.sample.times do
+(5..20).to_a.sample.times do
     p = users.sample.profile
     c = Cheval.all.sample
     b = Booking.create!(
