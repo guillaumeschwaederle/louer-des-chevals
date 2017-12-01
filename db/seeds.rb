@@ -65,7 +65,7 @@ photo_cheval_list = [
     price: Faker::Number.number(2),
     robe: Robe.all.sample,
     category: Category.all.sample,
-    ville: ["Paris", "Lille", "Marseille", "Amiens", "Arras", "Lyon", "Bordeaux"].sample,
+    ville: ["Paris", "Lille", "Marseille", "Amiens", "Arras", "Lyon", "Bordeaux", "Toulon"].sample,
     rue: "30 Rue de Paris",
     profile: profile
     )
