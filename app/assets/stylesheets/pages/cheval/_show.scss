@@ -4,7 +4,6 @@
 }
 
 .photo-center {
-    width: 1140px;
     position: relative;
 }
 
@@ -13,7 +12,7 @@
   bottom: 10px;
   left: 10px;
   color: white;
-  font-size: 60px;
+  font-size: 20px;
   letter-spacing: 2px;
 }
 
@@ -23,7 +22,7 @@
     left: 10px;
     color: white;
     letter-spacing: 2px;
-    font-size: 15px;
+    font-size: 10px;
     background-color: black;
     opacity: 0.75;
     padding: 8px 17px;
@@ -97,7 +96,7 @@
 }
 
 .sidebar-content {
-  padding-top: 20px;
+  padding: 20px 20px;
   text-align: center;
 }
 
@@ -119,7 +118,7 @@
 }
 
 .sidebar-text {
-    padding: 40px 70px;
+    padding: 30px 20px;
     text-align: justify;
 }
 
@@ -143,4 +142,8 @@
 .title-show {
     margin-bottom: 80px;
     margin-top: 60px;
+}
+
+.container-show-cheval {
+    padding: 0px 60px;
 }

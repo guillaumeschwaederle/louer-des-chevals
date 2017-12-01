@@ -10,9 +10,9 @@
       </div>
       <div class= "col-xs-6 margin30bottom">
          <% if current_user.profile.photo? %>
-         <%= cl_image_tag @profile.photo, height: 500, width: 400, crop: :thumb, gravity: :face %>
+         <%= cl_image_tag @profile.photo, height: 200, width: 200, crop: :thumb, gravity: :face %>
          <% else %>
-         <%= cl_image_tag "profilechevalempty", height: 500, width: 400 %>
+         <%= cl_image_tag "profilechevalempty", height: 200, width: 200 %>
          <% end %>
         </br>
       </div>

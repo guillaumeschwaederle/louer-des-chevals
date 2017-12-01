@@ -13,3 +13,8 @@
 @import "layouts/index";
 @import "components/index";
 @import "pages/index";
+
+
+.main-content-cheval {
+    min-height: calc(100vh - 180px);
+}

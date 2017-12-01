@@ -9,16 +9,16 @@
     <%= action_cable_meta_tag %>
     <%= stylesheet_link_tag 'application', media: 'all' %>
   </head>
-  <body>
-
+  <body class="container-all">
     <% if current_user %>
       <%= render 'shared/navbar-other-pages' %>
     <% else %>
       <%= render 'shared/navbar-home' %>
     <% end %>
     <%= render 'shared/flashes' %>
+    <div class="main-content-cheval">
     <%= yield %>
-
+    </div>
     <%= render 'shared/footer' %>
 
     <%= yield(:js) %>

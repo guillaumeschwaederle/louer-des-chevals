@@ -5,7 +5,7 @@
       <div class="col-xs-6">
      
 
-     <h2>Log in</h2>
+     <h2>Se connecter</h2>
 
                     <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
                       <div class="form-inputs">
@@ -16,14 +16,10 @@
 
                       <div class="form-actions text-center">
                         <%= f.button :submit, "Se connecter", class:"btn btn-cheval" %>
-                        </br></br>
                       </div>
                     <% end %>
-
-
-                    <div class="text-center">
                     <%= render "devise/shared/links" %>
-                      </div>
+
 
 
       </div>
