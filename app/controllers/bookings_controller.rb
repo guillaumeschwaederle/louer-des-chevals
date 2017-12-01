@@ -1,10 +1,11 @@
 class BookingsController < ApplicationController
-  before_action :set_cheval, only: [:new, :create, :edit, :update]
-  before_action :set_booking, only: [:show, :edit, :update, :destroy]
-  before_action :set_modif_statut, only: [:validate, :refuse, :cancel]
-  # after_action :redirect_mes_clients, only: [:validate, :refuse, :cancel]
+  before_action :set_cheval, only: [:show, :new, :create, :edit, :update, :destroy]
+  before_action :set_booking, only: [:show, :edit, :update, :destroy, :validate, :refuse, :cancel]
 
   def show
+    unless current_user.profile == @booking.profile || current_user.profile == @booking.cheval.profile
+      redirect_to chevals_path
+    end
   end
 
   def new
@@ -28,22 +29,25 @@ class BookingsController < ApplicationController
   end
 
   def edit
+    unless current_user.profile == @booking.profile
+      redirect_to cheval_booking_path(@booking)
+    end
   end
 
   def update
     @booking.update(booking_params)
-    redirect_to cheval_booking_path(@booking)
+    redirect_to cheval_booking_path(@cheval, @booking)
   end
 
   def destroy
     @booking.destroy
-    redirect_to @booking.cheval
+    redirect_to profile_mesclients_path(current_user.profile)
   end
 
   def validate
     @booking.statut = "Validé"
     if @booking.save
-      redirect_to  profile_mesclients_path(current_user.profile)
+      redirect_to profile_mesclients_path(current_user.profile)
     else
       render :new
     end
@@ -52,7 +56,7 @@ class BookingsController < ApplicationController
   def refuse
     @booking.statut = "Refusé"
     if @booking.save
-      redirect_to  profile_mesclients_path(current_user.profile)
+      redirect_to profile_mesclients_path(current_user.profile)
     else
       render :new
     end
@@ -61,7 +65,7 @@ class BookingsController < ApplicationController
   def cancel
     @booking.statut = "Annulé"
     if @booking.save
-      redirect_to  profile_mesclients_path(current_user.profile)
+      redirect_to cheval_booking_path(@booking.cheval, @booking)
     else
       render :new
     end
@@ -69,20 +73,12 @@ class BookingsController < ApplicationController
 
   private
 
-  def redirect_mes_clients
-    redirect_to  profile_mesclients_path(current_user.profile)
-  end
-
-  def set_modif_statut
+  def set_booking
     @booking = Booking.find(params[:id])
   end
 
   def set_cheval
     @cheval = Cheval.find(params[:cheval_id])
-  end
-
-  def set_booking
-    @booking = Booking.find(params[:booking_id])
   end
 
   def booking_params

@@ -1,3 +1,16 @@
+.boutons {
+  display: flex;
+  flex-direction: column
+}
+.end_message {
+  margin: 0px 10px;
+}
+.avatar-square {
+  width: 100px;
+  border-radius: 0px;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.2);
+  border: white 1px solid;
+}
 .message {
   display: flex;
   align-items: center;
@@ -46,14 +59,9 @@
   font-size: 14px;
   font-weight: bold;
 }
-.status.accepted {
-  color: #04A366;
-}
-.status.declined {
-  color: red;
-}
 .status.pending {
-  color: lightgrey;
+  color: #111111;
+  font-size: 20px;
 }
 .avatar {
   width: 30px;

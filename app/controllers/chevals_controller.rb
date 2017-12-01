@@ -16,14 +16,28 @@ class ChevalsController < ApplicationController
   end
 
   def new
-    @cheval = Cheval.new
+    if current_user
+      @cheval = Cheval.new
+    else
+      redirect_to new_user_session_path
+    end
   end
 
   def create
     @cheval = Cheval.new(cheval_params)
+    @cheval.profile = current_user.profile
+    @cheval.save
+    if @cheval.save
+      redirect_to cheval_path(@cheval)
+    else
+      render :new
+    end
   end
 
   def edit
+    unless current_user
+      redirect_to new_user_session_path
+    end
   end
 
   def update

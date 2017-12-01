@@ -1,38 +1,21 @@
 <div class="main-container">
-  <div class="cards-container">
-    <h1 class="text-center">Tous les Chevals</h1>
-    <ul>
-      <div class="row">
-      <% @chevals.each do |cheval| %>
-        <div class="col-xs-12 col-sm-6 col-md-4">
-          <div class="card">
-            <h3><%= cheval.name %></h2>
-          </div>
-           <div class="card-description"><%= cheval.price %>€/j
-          </br>
-           <strong><%= cheval.ville %></li></b></strong>
-           </div>
-           <p><%= link_to 'voir', cheval_path(cheval) %> - <%= link_to 'edit', edit_cheval_path(cheval) %> <p>
-        </div>
-            <% end %>
-      </div>
-    </ul>
-  </div>
+   
+<%= render 'shared/showdeschevals' %>
 
-  <div id="map"></div>
-  <% content_for(:after_js) do %>
-    <%= javascript_tag do %>
-      var handler = Gmaps.build('Google');
-      handler.buildMap({ internal: { id: 'map' } }, function() {
-        markers = handler.addMarkers(<%= raw @markers.to_json %>);
-        handler.bounds.extendWith(markers);
-        handler.fitMapToBounds();
-        if (markers.length == 0) {
-          handler.getMap().setZoom(2);
-        } else if (markers.length == 1) {
-          handler.getMap().setZoom(14);
-        }
-      });
-    <% end %>
-  <% end %>
+   <div id="map"></div>
+   <% content_for(:after_js) do %>
+   <%= javascript_tag do %>
+   var handler = Gmaps.build('Google');
+   handler.buildMap({ internal: { id: 'map' } }, function() {
+   markers = handler.addMarkers(<%= raw @markers.to_json %>);
+   handler.bounds.extendWith(markers);
+   handler.fitMapToBounds();
+   if (markers.length == 0) {
+   handler.getMap().setZoom(2);
+   } else if (markers.length == 1) {
+   handler.getMap().setZoom(14);
+   }
+   });
+   <% end %>
+   <% end %>
 </div>

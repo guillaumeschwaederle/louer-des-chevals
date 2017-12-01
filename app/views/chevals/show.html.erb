@@ -1,5 +1,4 @@
 
-
 <div class="main-container-show">
    <div class="container">
       <div class="photo-center row">
@@ -14,7 +13,7 @@
                <span class="icon fa fa-building fa-5"></span><%= @cheval.ville %>
             </div>
             <div class="col-xs-6">
-               <span class="icon fa fa-caret-up fa-5"></span><%= @cheval.taille.to_s.chars.first %>,<%= @cheval.taille.to_s.chars[-2..-1].join %> mètres au garot 
+               <span class="icon fa fa-caret-up fa-5"></span><%= @cheval.taille.to_s.chars.first %>,<%= @cheval.taille.to_s.chars[-2..-1].join %> mètres au garot
             </div>
             <div class="col-xs-6">
                <span class="icon fa fa-road fa-5"></span><%= @cheval.rue %>
@@ -28,7 +27,7 @@
          <%= link_to 'Noter ce cheval', new_cheval_review_path(@cheval), class: "btn btn-primary" %>
          <% end %>
          <h3 class="avis-title">
-            Les avis 
+            Les avis
          </h3>
          <% @cheval.reviews.each do |review, rating| %>
          <div class="reviews">
@@ -73,6 +72,4 @@
       </div>
    </div>
 </div>
-
-
 
